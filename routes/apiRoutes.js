@@ -1,32 +1,36 @@
 const fs = require('fs');
 const router = require('express').Router();
 const notes = require('../db/db.json');
+const uuid = require('uuid');
 
 router.get('/notes', (req, res) => {
     res.json(notes);
 });
 
 router.post('/notes', (req, res) => {
-    const addNote = req.body;
+    /* update the json file with the new note  */
+    console.log('---------------------------------------------')
+    // get the new note from the client
+    const addNote = {...req.body};
+    console.log(addNote)
+    // add an id prop to the new note using uuid
+    addNote.id = uuid.v4();
 
+    // get the current notes file (array of note objs)
+    console.log(notes);
+    // push our new not into notes
+    notes.push(addNote);
+    console.log(notes);
 
-    fs.writeFile('./db/db.json', JSON.stringify(notes), err => {
+    // add that new information into our json file
+    fs.writeFile('./db/db.json', JSON.stringify(notes), function(err) {
         if (err) {
-            throw err;
+            res.status(500).json('something went wrong: ' +  err)
         } else {
-            return true;
+            console.log('finished writing to file')
+            res.json(notes);
         }
     });
-
-    res.json(notes);
 });
-
-router.delete('/notes/:id', (req, res) => {
-    const addNote = JSON.parse(fs.readFile('./db/db.json'));
-    const clearNote = addNote.filter((remove) => remove.id !== req.params.id);
-    fs.writeFile('./db/db.json', JSON.stringify(clearNote));
-    res.json(clearNote);
-});
-
 
 module.exports = router;
