@@ -1,6 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
+[{"title":"Test Title","text":"Test text"},{"title":"This is Assignment 11","text":"Note taker","id":"d1892175-3677-4dee-a4b3-194d68c17a2a"},{"title":"To shop list","text":"1. Veggie\n2. Chicken\n3. Fruits","id":"70873ac3-7282-438a-b89a-ce9aaad790fa"},{"title":"Express.js","text":"Express is a node js web application framework that provides broad features for building web and mobile applications.","id":"6c4ffb31-e181-4825-89a4-311114d17a8f"},{"title":"My SQL","text":"MySQL is an Oracle-backed open-source relational database management system (RDBMS) based on Structured Query Language (SQL). ","id":"152d1e5d-c24a-4cbd-a633-dcb46b4959b5"},{"title":"Node.js","text":"An open-source development platform for executing JavaScript code server-side.","id":"4ce962f1-a797-43c7-a206-13a77ac67a31"}]

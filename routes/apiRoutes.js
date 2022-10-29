@@ -1,12 +1,16 @@
+// to require fs, express router and db for notes
 const fs = require('fs');
 const router = require('express').Router();
 const notes = require('../db/db.json');
+// need uuid to generate new ids for each note
 const uuid = require('uuid');
 
+// GET route
 router.get('/notes', (req, res) => {
     res.json(notes);
 });
 
+// POST route
 router.post('/notes', (req, res) => {
     /* update the json file with the new note  */
     console.log('---------------------------------------------')
@@ -16,9 +20,9 @@ router.post('/notes', (req, res) => {
     // add an id prop to the new note using uuid
     addNote.id = uuid.v4();
 
-    // get the current notes file (array of note objs)
+    // get the current notes file (array of note objects)
     console.log(notes);
-    // push our new not into notes
+    // push our new note into notes
     notes.push(addNote);
     console.log(notes);
 
