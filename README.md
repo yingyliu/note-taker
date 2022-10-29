@@ -3,6 +3,8 @@
 ## Application to Heroku
 https://note-taker-yingyliu.herokuapp.com/
 ![heroku-image](./images/heroku-note-taker.png)
+
+## At Local Host
 ![localhost-image](./images/localhost-note-taker.png)
 
 ## Table of Contents
